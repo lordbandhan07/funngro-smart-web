@@ -1278,3 +1278,90 @@ button, input, select, textarea {
     padding: 24px;
   }
 }
+
+/* Enhanced Mobile Breakpoints (640px and 480px) */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+  .section-title {
+    font-size: 1.85rem;
+    line-height: 1.25;
+  }
+  .section-header {
+    margin-bottom: 32px;
+  }
+  .hero-card-preview {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .hero-floating-card {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+  .float-top-right {
+    top: -24px;
+    right: 0px;
+    transform: scale(0.92);
+  }
+  .float-bottom-left {
+    bottom: -24px;
+    left: 0px;
+    transform: scale(0.92);
+  }
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .category-card {
+    padding: 22px 18px;
+  }
+  .pricing-tiers-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+  .faq-question {
+    padding: 16px 18px;
+    font-size: 0.95rem;
+  }
+  .glass-card {
+    padding: 24px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.95rem;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .trust-badges {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .calc-box {
+    padding: 18px 14px;
+  }
+  .calc-payout-box {
+    padding: 18px 14px;
+  }
+  .calc-payout-amount {
+    font-size: 1.9rem;
+  }
+  .stat-number {
+    font-size: 2.2rem;
+  }
+}
