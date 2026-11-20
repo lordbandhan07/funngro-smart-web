@@ -82,12 +82,12 @@ Funngro requires you to **"Put your create website link in the remark"**. Here a
 3. Push your code:
    ```bash
    git branch -M main
-   git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/funngro-smart-website.git
+   git remote add origin https://github.com/lordbandhan07/funngro-smart-web.git
    git push -u origin main
    ```
 4. On GitHub, go to **Settings > Pages > Branch**, select `main` (root) and click **Save**.
 5. Your live website link will be:  
-   👉 `https://<YOUR_GITHUB_USERNAME>.github.io/funngro-smart-website/`
+   👉 `https://lordbandhan07.github.io/funngro-smart-web/`
 
 ### Option B: Free Drag-and-Drop Hosting on Netlify or Vercel
 1. Go to [app.netlify.com/drop](https://app.netlify.com/drop) or [vercel.com](https://vercel.com).
@@ -106,9 +106,9 @@ Hi Funngro Team,
 I have completed the "Create Smart Website for Funngro" evaluation project. Here are the submission details:
 
 1. Live Smart Website Link:
-   https://<YOUR_LIVE_LINK_HERE>
-   - Teenlancers Page: https://<YOUR_LIVE_LINK_HERE>/teen.html
-   - Company Hiring Page: https://<YOUR_LIVE_LINK_HERE>/company.html
+   https://lordbandhan07.github.io/funngro-smart-web/
+   - Teenlancers Page: https://lordbandhan07.github.io/funngro-smart-web/teen.html
+   - Company Hiring Page: https://lordbandhan07.github.io/funngro-smart-web/company.html
 
 2. Website Highlights:
    - 2-Page audience-tailored design (Teenlancers vs. Companies/Startups) with smooth switching.
@@ -116,10 +116,10 @@ I have completed the "Create Smart Website for Funngro" evaluation project. Here
    - Comprehensive SEO optimization: Semantic HTML5, Meta tags, Open Graph, Twitter Cards, XML Sitemap, Robots.txt, and Schema.org (Organization, Service & FAQPage) JSON-LD structured data.
 
 3. Funngro Website SEO Audit Report:
-   - Live Interactive Dashboard: https://<YOUR_LIVE_LINK_HERE>/seo-audit.html
+   - Live Interactive Dashboard: https://lordbandhan07.github.io/funngro-smart-web/seo-audit.html
    - The detailed SEO Audit Report analyzes on-page factors, technical SEO health, Core Web Vitals, dual-audience keyword strategy, and an actionable 30-day organic growth roadmap.
 
-GitHub Repository: https://github.com/<YOUR_GITHUB_USERNAME>/funngro-smart-website
+GitHub Repository: https://github.com/lordbandhan07/funngro-smart-web
 
 Thank you!
 ```
