@@ -1,9 +1,10 @@
 /**
  * Funngro Smart Website - Core Interactive Scripts
- * Earnings Calculator, Project Estimator, Modals, Accordions & Navigation
+ * Earnings Calculator, Project Estimator, Modals, Accordions & Dynamic Slider Navigation
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initSliderNavigation();
   initMobileMenu();
   initFaqAccordion();
   initTeenEarningsCalculator();
@@ -13,26 +14,72 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --------------------------------------------------------------------------
-   Mobile Menu Navigation
+   Dynamic Slider Navigation (Segmented Control)
+   -------------------------------------------------------------------------- */
+function initSliderNavigation() {
+  const container = document.querySelector('.slider-nav-container');
+  const indicator = document.querySelector('.slider-indicator');
+  const tabs = document.querySelectorAll('.slider-tab-btn');
+
+  if (!container || !indicator || !tabs.length) return;
+
+  function updateIndicator(targetTab) {
+    if (!targetTab) return;
+    const tabRect = targetTab.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+    const leftOffset = tabRect.left - containerRect.left;
+    const width = tabRect.width;
+
+    indicator.style.transform = `translateX(${leftOffset - 4}px)`;
+    indicator.style.width = `${width}px`;
+
+    // Dynamic color matching
+    const target = targetTab.getAttribute('data-target');
+    indicator.className = 'slider-indicator';
+    if (target === 'teen') {
+      indicator.classList.add('indicator-teen');
+    } else if (target === 'company') {
+      indicator.classList.add('indicator-business');
+    } else if (target === 'audit') {
+      indicator.classList.add('indicator-audit');
+    }
+  }
+
+  // Set initial position
+  const activeTab = document.querySelector('.slider-tab-btn.active') || tabs[0];
+  setTimeout(() => updateIndicator(activeTab), 50);
+
+  // Hover preview
+  tabs.forEach(tab => {
+    tab.addEventListener('mouseenter', () => updateIndicator(tab));
+  });
+
+  // Reset to active on mouse leave
+  container.addEventListener('mouseleave', () => {
+    const currentActive = document.querySelector('.slider-tab-btn.active') || tabs[0];
+    updateIndicator(currentActive);
+  });
+
+  // Resize handler
+  window.addEventListener('resize', () => {
+    const currentActive = document.querySelector('.slider-tab-btn.active') || tabs[0];
+    updateIndicator(currentActive);
+  });
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Drawer Navigation
    -------------------------------------------------------------------------- */
 function initMobileMenu() {
   const menuBtn = document.querySelector('.mobile-menu-btn');
-  const navLinks = document.querySelector('.nav-links');
+  const drawer = document.querySelector('.mobile-drawer');
 
-  if (!menuBtn || !navLinks) return;
+  if (!menuBtn || !drawer) return;
 
   menuBtn.addEventListener('click', () => {
-    const isVisible = navLinks.style.display === 'flex';
-    navLinks.style.display = isVisible ? 'none' : 'flex';
-    navLinks.style.flexDirection = 'column';
-    navLinks.style.position = 'absolute';
-    navLinks.style.top = '100%';
-    navLinks.style.left = '0';
-    navLinks.style.width = '100%';
-    navLinks.style.background = '#090d16';
-    navLinks.style.padding = '20px';
-    navLinks.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
-    menuBtn.textContent = isVisible ? '☰' : '✕';
+    const isOpen = drawer.classList.toggle('open');
+    menuBtn.textContent = isOpen ? '✕' : '☰';
+    menuBtn.setAttribute('aria-expanded', isOpen);
   });
 }
 
@@ -47,9 +94,7 @@ function initFaqAccordion() {
 
     question.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
-      // Close all
       faqItems.forEach(el => el.classList.remove('active'));
-      // Toggle clicked
       if (!isActive) {
         item.classList.add('active');
       }
@@ -70,7 +115,6 @@ function initTeenEarningsCalculator() {
 
   if (!hoursSlider || !skillSelect || !earningOutput) return;
 
-  // Hourly base rates (approx in INR)
   const skillMultipliers = {
     webdev: 350,       // Web & App Dev
     content: 200,      // Content & Copywriting
@@ -87,7 +131,6 @@ function initTeenEarningsCalculator() {
 
     hoursDisplay.textContent = `${hours} hrs/week`;
 
-    // Monthly earnings = hours * 4 weeks * rate
     const monthlyTotal = Math.round(hours * 4 * rate);
     const approxProjects = Math.max(1, Math.round(hours * 4 / 6));
 
@@ -194,7 +237,6 @@ function initModals() {
     });
   });
 
-  // Close on backdrop click
   document.querySelectorAll('.modal-overlay').forEach(modal => {
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
