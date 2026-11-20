@@ -40,7 +40,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Core Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=2.2">
 
   <!-- Schema.org JSON-LD Structured Data for SEO Rich Snippets -->
   <script type="application/ld+json">
@@ -102,6 +102,8 @@
   </script>
 </head>
 <body>
+  <!-- Ambient Top Glowing Mesh (Zero Black Gap Behind Floating Navbar) -->
+  <div class="site-top-ambient" aria-hidden="true"></div>
 
   <!-- Navigation Header with Segmented Slider & Sub-Navbar -->
   <header class="site-header" role="banner">
@@ -135,7 +137,11 @@
 
       <!-- 3-Way Segmented Slider Control -->
       <nav class="slider-nav-container" aria-label="Portal Navigation">
-        <div class="slider-indicator indicator-teen"></div>
+        <div class="slider-indicator indicator-teen">
+          <span class="indicator-bg indicator-bg-teen"></span>
+          <span class="indicator-bg indicator-bg-business"></span>
+          <span class="indicator-bg indicator-bg-audit"></span>
+        </div>
         <a href="teen.html" class="slider-tab-btn active" data-target="teen" aria-current="page">
           <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10z"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"/><line x1="8" y1="10" x2="8.01" y2="10"/><line x1="16" y1="10" x2="16.01" y2="10"/></svg>
           <span>For Teens</span>
@@ -813,6 +819,6 @@
   </div>
 
   <!-- JavaScript -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=2.2"></script>
 </body>
 </html>

@@ -43,7 +43,16 @@ function initSliderNavigation() {
 
   if (!container || !indicator || !tabs.length) return;
 
-  function updateIndicator(targetTab) {
+  // Ensure layered color cross-fade backgrounds exist inside the indicator
+  if (!indicator.querySelector('.indicator-bg-teen')) {
+    indicator.innerHTML = `
+      <span class="indicator-bg indicator-bg-teen"></span>
+      <span class="indicator-bg indicator-bg-business"></span>
+      <span class="indicator-bg indicator-bg-audit"></span>
+    `;
+  }
+
+  function updatePositionAndColor(targetTab) {
     if (!targetTab) return;
     const tabRect = targetTab.getBoundingClientRect();
     const containerRect = container.getBoundingClientRect();
@@ -53,9 +62,13 @@ function initSliderNavigation() {
     indicator.style.transform = `translateX(${leftOffset - 4}px)`;
     indicator.style.width = `${width}px`;
 
-    // Dynamic color matching
+    // Update active state on tab labels
+    tabs.forEach(t => t.classList.remove('active'));
+    targetTab.classList.add('active');
+
+    // Smoothly toggle the active color class for multi-layered cross-fade
     const target = targetTab.getAttribute('data-target');
-    indicator.className = 'slider-indicator';
+    indicator.classList.remove('indicator-teen', 'indicator-business', 'indicator-audit');
     if (target === 'teen') {
       indicator.classList.add('indicator-teen');
     } else if (target === 'company') {
@@ -65,21 +78,42 @@ function initSliderNavigation() {
     }
   }
 
-  // Set initial position
+  // Set initial position instantly without transition jerk on page load
   const activeTab = document.querySelector('.slider-tab-btn.active') || tabs[0];
-  setTimeout(() => updateIndicator(activeTab), 50);
+  indicator.classList.add('no-transition');
+  updatePositionAndColor(activeTab);
 
-  // Click/tap handler to slide active indicator
+  // Enable buttery transitions on the next frame
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      indicator.classList.remove('no-transition');
+    });
+  });
+
+  // Click/tap handler with smooth gliding animation before navigation
   tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      updateIndicator(tab);
+    tab.addEventListener('click', (e) => {
+      const href = tab.getAttribute('href');
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const targetPage = href ? href.split('#')[0] : '';
+      const isExternalOrOtherPage = targetPage && targetPage !== currentPage && !(currentPage === 'index.html' && targetPage === 'teen.html');
+
+      if (isExternalOrOtherPage) {
+        e.preventDefault();
+        updatePositionAndColor(tab);
+        setTimeout(() => {
+          window.location.href = href;
+        }, 170);
+      } else {
+        updatePositionAndColor(tab);
+      }
     });
   });
 
   // Resize handler
   window.addEventListener('resize', () => {
     const currentActive = document.querySelector('.slider-tab-btn.active') || tabs[0];
-    updateIndicator(currentActive);
+    updatePositionAndColor(currentActive);
   });
 }
 
