@@ -77,30 +77,146 @@
     }
 
     @media print {
-      body { background: #fff !important; color: #000 !important; }
-      .site-header, .site-footer, .no-print { display: none !important; }
-      .glass-panel, .glass-card { background: #fff !important; border: 1px solid #ccc !important; box-shadow: none !important; }
-      h1, h2, h3, h4, p, td, th { color: #000 !important; }
-      a { color: #1a73e8 !important; }
-      code { background: #f1f3f5 !important; color: #000 !important; padding: 1px 4px; border-radius: 3px; }
-      .audit-badge { border: 1px solid #999 !important; color: #000 !important; background: #f9f9f9 !important; }
-
-      /* Each major section starts on its own PDF page */
-      #scorecard,
-      #on-page,
-      #technical,
-      #web-vitals,
-      #roadmap {
-        page-break-before: always;
-        break-before: page;
+      @page {
+        size: A4 portrait;
+        margin: 14mm 14mm 14mm 14mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #111827 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      body::before {
+        display: none !important;
+      }
+      .site-header, .site-footer, .no-print, .sub-navbar, .mobile-drawer {
+        display: none !important;
+      }
+      main.container {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+      .glass-panel, .glass-card {
+        background: #ffffff !important;
+        border: 1px solid #e5e7eb !important;
+        box-shadow: none !important;
+        border-radius: 8px !important;
+        padding: 24px !important;
+        margin-bottom: 0 !important;
+      }
+      h1, h2, h3, h4, p, td, th {
+        color: #111827 !important;
+      }
+      .text-gradient-gold {
+        background: none !important;
+        -webkit-text-fill-color: #d97706 !important;
+        color: #d97706 !important;
+      }
+      .score-circle {
+        border-color: #10b981 !important;
+      }
+      .score-circle-inner span {
+        color: #059669 !important;
+      }
+      .audit-badge {
+        border: 1px solid #d1d5db !important;
+        color: #111827 !important;
+        background: #f3f4f6 !important;
+        padding: 2px 8px !important;
+        display: inline-block !important;
+      }
+      .audit-badge.badge-pass {
+        background: #ecfdf5 !important;
+        color: #065f46 !important;
+        border-color: #a7f3d0 !important;
+      }
+      .audit-badge.badge-warn {
+        background: #fffbeb !important;
+        color: #92400e !important;
+        border-color: #fde68a !important;
+      }
+      .audit-badge.badge-info {
+        background: #eff6ff !important;
+        color: #1e40af !important;
+        border-color: #bfdbfe !important;
+      }
+      .audit-table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+      }
+      .audit-table th {
+        background: #f8fafc !important;
+        color: #111827 !important;
+        border: 1px solid #cbd5e1 !important;
+        padding: 8px 10px !important;
+      }
+      .audit-table td {
+        border: 1px solid #e2e8f0 !important;
+        color: #1e293b !important;
+        padding: 8px 10px !important;
+      }
+      code {
+        background: #f1f5f9 !important;
+        color: #0f172a !important;
+        padding: 1px 4px !important;
+        border-radius: 3px !important;
       }
 
-      /* Avoid splitting individual cards, tables, and rows across pages */
-      .glass-card,
-      .glass-panel,
-      table, tr, .audit-table tr {
-        page-break-inside: avoid;
-        break-inside: avoid;
+      /* PAGE 1: Header + Scorecard together (NEVER split into empty page!) */
+      .audit-cover-header {
+        margin: 0 auto 20px !important;
+        text-align: center !important;
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+      }
+      #scorecard {
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      /* PAGE 2: On-Page SEO Section */
+      #on-page {
+        page-break-before: always !important;
+        break-before: page !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      /* PAGE 3: Technical SEO Section */
+      #technical {
+        page-break-before: always !important;
+        break-before: page !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      /* PAGE 4: Core Web Vitals Section */
+      #web-vitals {
+        page-break-before: always !important;
+        break-before: page !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      /* PAGE 5: Growth Roadmap Section */
+      #roadmap {
+        page-break-before: always !important;
+        break-before: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
       }
     }
   </style>
@@ -226,7 +342,7 @@
 
   <main class="container" style="padding-top: 50px; padding-bottom: 80px;">
     <!-- Audit Header -->
-    <div style="text-align: center; max-width: 800px; margin: 0 auto 50px;">
+    <div class="audit-cover-header" style="text-align: center; max-width: 800px; margin: 0 auto 50px;">
       <div class="badge badge-amber">Official Project Submission Deliverable</div>
       <h1 style="font-size: 2.8rem; letter-spacing: -1px; margin-bottom: 16px;">
         Funngro Website <span class="text-gradient-gold">SEO Audit Report</span>
@@ -442,6 +558,7 @@
       <p style="margin-top: 8px;">
         <a href="teen.html" style="color: #34d399; margin: 0 10px;">Back to Teen Page</a> |
         <a href="company.html" style="color: #818cf8; margin: 0 10px;">Back to Company Page</a> |
+        <a href="floating-navbar.html" style="color: #38bdf8; margin: 0 10px;">Floatable Navbar Demo</a> |
         <a href="sitemap.xml" style="color: #fbbf24; margin: 0 10px;">View Sitemap.xml</a>
       </p>
     </div>
