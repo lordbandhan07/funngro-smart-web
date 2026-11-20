@@ -1,0 +1,14 @@
+# ==============================================================================
+# Robots.txt for Funngro Smart Website
+# Configured for Optimal Search Engine Crawling & Indexation
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /checkout/
+Disallow: /login/
+
+# Sitemaps
+Sitemap: https://funngro.com/sitemap.xml
