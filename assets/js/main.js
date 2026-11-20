@@ -69,15 +69,11 @@ function initSliderNavigation() {
   const activeTab = document.querySelector('.slider-tab-btn.active') || tabs[0];
   setTimeout(() => updateIndicator(activeTab), 50);
 
-  // Hover preview
+  // Click/tap handler to slide active indicator
   tabs.forEach(tab => {
-    tab.addEventListener('mouseenter', () => updateIndicator(tab));
-  });
-
-  // Reset to active on mouse leave
-  container.addEventListener('mouseleave', () => {
-    const currentActive = document.querySelector('.slider-tab-btn.active') || tabs[0];
-    updateIndicator(currentActive);
+    tab.addEventListener('click', () => {
+      updateIndicator(tab);
+    });
   });
 
   // Resize handler
@@ -164,13 +160,13 @@ function initTeenEarningsCalculator() {
 
     if (badgeOutput) {
       if (hours <= 5) {
-        badgeOutput.textContent = '🌟 Starter Teenlancer';
+        badgeOutput.textContent = 'Starter Teenlancer';
         badgeOutput.style.color = '#34d399';
       } else if (hours <= 12) {
-        badgeOutput.textContent = '🚀 Growth Teenlancer';
+        badgeOutput.textContent = 'Growth Teenlancer';
         badgeOutput.style.color = '#60a5fa';
       } else {
-        badgeOutput.textContent = '👑 Pro Creator & Teen Tech Lead';
+        badgeOutput.textContent = 'Pro Creator & Teen Tech Lead';
         badgeOutput.style.color = '#fbbf24';
       }
     }
