@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initFloatingHeaderScroll();
   initSliderNavigation();
   initMobileMenu();
   initFaqAccordion();
@@ -12,6 +13,25 @@ document.addEventListener('DOMContentLoaded', () => {
   initModals();
   initAnimatedCounters();
 });
+
+/* --------------------------------------------------------------------------
+   Floating Transparent Header on Scroll
+   -------------------------------------------------------------------------- */
+function initFloatingHeaderScroll() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  function onScroll() {
+    if (window.scrollY > 15) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
 
 /* --------------------------------------------------------------------------
    Dynamic Slider Navigation (Segmented Control)
@@ -76,9 +96,12 @@ function initMobileMenu() {
 
   if (!menuBtn || !drawer) return;
 
+  const hamburgerSvg = `<svg class="svg-icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>`;
+  const closeSvg = `<svg class="svg-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+
   menuBtn.addEventListener('click', () => {
     const isOpen = drawer.classList.toggle('open');
-    menuBtn.textContent = isOpen ? '✕' : '☰';
+    menuBtn.innerHTML = isOpen ? closeSvg : hamburgerSvg;
     menuBtn.setAttribute('aria-expanded', isOpen);
   });
 }
