@@ -85,20 +85,29 @@ function initSliderNavigation() {
   }
 
   // Set initial position
-  const activeTab = document.querySelector('.slider-tab-btn.active') || tabs[0];
-  setTimeout(() => updateIndicator(activeTab), 50);
+  const activeTab = document.querySelector('.slider-tab-btn.active');
+  if (activeTab) {
+    indicator.style.opacity = '1';
+    setTimeout(() => updateIndicator(activeTab), 50);
+  } else {
+    indicator.style.opacity = '0';
+  }
 
   // Click/tap handler to slide active indicator
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
+      indicator.style.opacity = '1';
       updateIndicator(tab);
     });
   });
 
   // Resize handler
   window.addEventListener('resize', () => {
-    const currentActive = document.querySelector('.slider-tab-btn.active') || tabs[0];
-    updateIndicator(currentActive);
+    const currentActive = document.querySelector('.slider-tab-btn.active');
+    if (currentActive) {
+      indicator.style.opacity = '1';
+      updateIndicator(currentActive);
+    }
   });
 }
 
