@@ -11,10 +11,10 @@
   <link rel="icon" type="image/x-icon" href="https://www.funngro.com/favicon.ico">
   <link rel="shortcut icon" href="assets/images/favicon.ico">
 
-  <!-- Fonts & Stylesheet -->
+  <!-- Stylish Google Fonts: Outfit, Space Grotesk & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 
   <style>
@@ -120,22 +120,28 @@
       <nav class="slider-nav-container" aria-label="Portal Navigation">
         <div class="slider-indicator indicator-audit"></div>
         <a href="teen.html" class="slider-tab-btn" data-target="teen">
-          <span>🎒</span> For Teens
+          <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10z"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"/><line x1="8" y1="10" x2="8.01" y2="10"/><line x1="16" y1="10" x2="16.01" y2="10"/></svg>
+          <span>For Teens</span>
         </a>
         <a href="company.html" class="slider-tab-btn" data-target="company">
-          <span>💼</span> For Companies
+          <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <span>For Companies</span>
         </a>
         <a href="seo-audit.html" class="slider-tab-btn active" data-target="audit" aria-current="page">
-          <span>📊</span> SEO Audit
+          <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span>SEO Audit</span>
         </a>
       </nav>
 
       <!-- Action Buttons for SEO Audit -->
       <div class="nav-actions-group">
         <button onclick="window.print()" class="btn btn-primary btn-sm no-print" style="background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);">
-          🖨️ Print / Save PDF
+          <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <span>Print / Save PDF</span>
         </button>
-        <button class="mobile-menu-btn" aria-label="Toggle Mobile Menu">☰</button>
+        <button class="mobile-menu-btn" aria-label="Toggle Mobile Menu">
+          <svg class="svg-icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
       </div>
     </div>
 
@@ -143,11 +149,36 @@
     <div class="sub-navbar">
       <div class="container">
         <ul class="sub-nav-links" role="menubar">
-          <li role="none"><a href="#scorecard" class="sub-nav-link" role="menuitem"><span>🎯</span> Scorecard</a></li>
-          <li role="none"><a href="#on-page" class="sub-nav-link" role="menuitem"><span>📝</span> On-Page SEO</a></li>
-          <li role="none"><a href="#technical" class="sub-nav-link" role="menuitem"><span>⚙️</span> Technical SEO</a></li>
-          <li role="none"><a href="#web-vitals" class="sub-nav-link" role="menuitem"><span>⚡</span> Core Web Vitals</a></li>
-          <li role="none"><a href="#roadmap" class="sub-nav-link" role="menuitem"><span>🗺️</span> 30-Day Roadmap</a></li>
+          <li role="none">
+            <a href="#scorecard" class="sub-nav-link" role="menuitem">
+              <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              <span>Scorecard</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="#on-page" class="sub-nav-link" role="menuitem">
+              <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <span>On-Page SEO</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="#technical" class="sub-nav-link" role="menuitem">
+              <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              <span>Technical SEO</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="#web-vitals" class="sub-nav-link" role="menuitem">
+              <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <span>Core Web Vitals</span>
+            </a>
+          </li>
+          <li role="none">
+            <a href="#roadmap" class="sub-nav-link" role="menuitem">
+              <svg class="svg-icon svg-icon-sm" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+              <span>30-Day Roadmap</span>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -155,19 +186,19 @@
     <!-- Mobile Drawer Navigation -->
     <div class="mobile-drawer" role="dialog" aria-label="Mobile Navigation">
       <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
-        <a href="teen.html" class="btn btn-outline btn-sm" style="flex: 1;">🎒 For Teens</a>
-        <a href="company.html" class="btn btn-outline btn-sm" style="flex: 1;">💼 For Companies</a>
-        <a href="seo-audit.html" class="btn btn-primary btn-sm" style="flex: 1; background: linear-gradient(135deg, #f59e0b, #d97706);">📊 SEO Audit</a>
+        <a href="teen.html" class="btn btn-outline btn-sm" style="flex: 1;">For Teens</a>
+        <a href="company.html" class="btn btn-outline btn-sm" style="flex: 1;">For Companies</a>
+        <a href="seo-audit.html" class="btn btn-primary btn-sm" style="flex: 1; background: linear-gradient(135deg, #f59e0b, #d97706);">SEO Audit</a>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px;">
-        <a href="#scorecard" class="sub-nav-link">🎯 Scorecard Overview</a>
-        <a href="#on-page" class="sub-nav-link">📝 On-Page SEO Audit</a>
-        <a href="#technical" class="sub-nav-link">⚙️ Technical Health &amp; Schema</a>
-        <a href="#web-vitals" class="sub-nav-link">⚡ Core Web Vitals Benchmarks</a>
-        <a href="#roadmap" class="sub-nav-link">🗺️ 30-Day Organic Roadmap</a>
+        <a href="#scorecard" class="sub-nav-link">Scorecard Overview</a>
+        <a href="#on-page" class="sub-nav-link">On-Page SEO Audit</a>
+        <a href="#technical" class="sub-nav-link">Technical Health &amp; Schema</a>
+        <a href="#web-vitals" class="sub-nav-link">Core Web Vitals Benchmarks</a>
+        <a href="#roadmap" class="sub-nav-link">30-Day Organic Roadmap</a>
       </div>
       <div style="display: flex; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 14px;">
-        <button onclick="window.print()" class="btn btn-primary btn-sm" style="width: 100%; background: linear-gradient(135deg, #f59e0b, #d97706);">🖨️ Print / Save PDF</button>
+        <button onclick="window.print()" class="btn btn-primary btn-sm" style="width: 100%; background: linear-gradient(135deg, #f59e0b, #d97706);">Print / Save PDF</button>
       </div>
     </div>
   </header>
@@ -223,7 +254,8 @@
     <!-- On-Page SEO Section -->
     <section id="on-page" class="glass-panel" style="padding: 36px; margin-bottom: 30px;">
       <h2 style="font-size: 1.5rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
-        <span>📝</span> 1. On-Page SEO &amp; Content Architecture
+        <svg class="svg-icon" style="color: #60a5fa;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <span>1. On-Page SEO &amp; Content Architecture</span>
       </h2>
 
       <table class="audit-table">
@@ -267,7 +299,8 @@
     <!-- Technical SEO Section -->
     <section id="technical" class="glass-panel" style="padding: 36px; margin-bottom: 30px;">
       <h2 style="font-size: 1.5rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
-        <span>⚙️</span> 2. Technical SEO &amp; Structured Data
+        <svg class="svg-icon" style="color: #a78bfa;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>2. Technical SEO &amp; Structured Data</span>
       </h2>
 
       <table class="audit-table">
@@ -311,7 +344,8 @@
     <!-- Core Web Vitals Comparison -->
     <section id="web-vitals" class="glass-panel" style="padding: 36px; margin-bottom: 30px;">
       <h2 style="font-size: 1.5rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
-        <span>⚡</span> 3. Core Web Vitals &amp; PageSpeed Benchmarks
+        <svg class="svg-icon" style="color: #fbbf24;" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <span>3. Core Web Vitals &amp; PageSpeed Benchmarks</span>
       </h2>
 
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px;">
@@ -341,7 +375,8 @@
     <!-- Strategic Growth Roadmap -->
     <section id="roadmap" class="glass-panel" style="padding: 36px;">
       <h2 style="font-size: 1.5rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
-        <span>🎯</span> 4. Priority SEO Roadmap &amp; Growth Action Items
+        <svg class="svg-icon" style="color: #34d399;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        <span>4. Priority SEO Roadmap &amp; Growth Action Items</span>
       </h2>
 
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px;">
@@ -349,9 +384,9 @@
           <span class="audit-badge badge-pass" style="margin-bottom: 12px;">P0: Immediate Wins</span>
           <h3 style="font-size: 1.15rem; margin-bottom: 12px;">Architecture Fixes</h3>
           <ul style="font-size: 0.85rem; color: var(--color-text-muted); list-style: none; display: flex; flex-direction: column; gap: 8px;">
-            <li>✓ Launch separated <code>/teen</code> &amp; <code>/company</code> URLs.</li>
-            <li>✓ Implement JSON-LD schema on all key routes.</li>
-            <li>✓ Compress all raster images to WebP/AVIF.</li>
+            <li><svg class="svg-icon svg-icon-sm" style="color: #34d399; display:inline-block; vertical-align:middle; margin-right:6px;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Launch separated <code>/teen</code> &amp; <code>/company</code> URLs.</li>
+            <li><svg class="svg-icon svg-icon-sm" style="color: #34d399; display:inline-block; vertical-align:middle; margin-right:6px;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Implement JSON-LD schema on all key routes.</li>
+            <li><svg class="svg-icon svg-icon-sm" style="color: #34d399; display:inline-block; vertical-align:middle; margin-right:6px;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Compress all raster images to WebP/AVIF.</li>
           </ul>
         </div>
 
@@ -381,7 +416,7 @@
   <!-- Footer -->
   <footer class="site-footer" style="padding: 40px 0 20px;">
     <div class="container" style="text-align: center; color: var(--color-text-muted); font-size: 0.85rem;">
-      <p>Prepared with ❤️ for the Funngro Website Development Project Evaluation &bull; Complete SEO Audit</p>
+      <p>Prepared with <svg class="svg-icon svg-icon-sm" style="display:inline-block; vertical-align:middle; color:#ef4444; fill:#ef4444;" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> for the Funngro Website Development Project Evaluation &bull; Complete SEO Audit</p>
       <p style="margin-top: 8px;">
         <a href="teen.html" style="color: #34d399; margin: 0 10px;">Back to Teen Page</a> |
         <a href="company.html" style="color: #818cf8; margin: 0 10px;">Back to Company Page</a> |
