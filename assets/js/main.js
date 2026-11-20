@@ -15,17 +15,36 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --------------------------------------------------------------------------
-   Floating Transparent Header on Scroll
+   Dynamic Adaptive Navbar: Docked at Top, Floats as Island on Scroll
    -------------------------------------------------------------------------- */
 function initFloatingHeaderScroll() {
   const header = document.querySelector('.site-header');
   if (!header) return;
 
+  let isFloating = false;
+
   function onScroll() {
-    if (window.scrollY > 15) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+    const shouldFloat = window.scrollY > 30;
+    if (shouldFloat !== isFloating) {
+      isFloating = shouldFloat;
+      if (shouldFloat) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      // Update slider navigation indicator on transition
+      setTimeout(() => {
+        const activeTab = document.querySelector('.slider-tab-btn.active');
+        const container = document.querySelector('.slider-nav-container');
+        const indicator = document.querySelector('.slider-indicator');
+        if (activeTab && container && indicator) {
+          const tabRect = activeTab.getBoundingClientRect();
+          const containerRect = container.getBoundingClientRect();
+          indicator.style.transform = `translateX(${tabRect.left - containerRect.left - 4}px)`;
+          indicator.style.width = `${tabRect.width}px`;
+        }
+      }, 150);
     }
   }
 

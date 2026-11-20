@@ -258,7 +258,7 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   NAVIGATION BAR & SLIDING SEGMENTED CONTROLS (SEAMLESS GLASS HEADER)
+   DYNAMIC ADAPTIVE NAVBAR (DOCKED FIXED AT TOP, FLOATS ON SCROLL)
    ========================================================================== */
 .site-header {
   position: sticky;
@@ -267,20 +267,48 @@ button, input, select, textarea {
   right: 0;
   z-index: 1000;
   width: 100%;
-  margin: 0;
-  background: rgba(9, 14, 26, 0.85);
+  margin: 0 auto;
+  background: rgba(9, 14, 26, 0.88);
   backdrop-filter: blur(24px) saturate(190%);
   -webkit-backdrop-filter: blur(24px) saturate(190%);
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0;
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: top 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              width 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              margin 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-radius 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              background 0.3s ease, 
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Floatable Island Transformation when Scrolled */
 .site-header.scrolled {
-  background: rgba(8, 12, 22, 0.95);
-  border-bottom-color: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.7);
+  top: 14px;
+  max-width: 1320px;
+  width: calc(100% - 32px);
+  margin: 14px auto 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 22px;
+  background: rgba(9, 14, 26, 0.65);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.65), 
+              0 0 0 1px rgba(255, 255, 255, 0.05),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.site-header.scrolled .nav-top-row {
+  border-top-left-radius: 21px;
+  border-top-right-radius: 21px;
+}
+
+.site-header.scrolled .sub-navbar {
+  border-bottom-left-radius: 21px;
+  border-bottom-right-radius: 21px;
 }
 
 .nav-top-row {
@@ -289,6 +317,7 @@ button, input, select, textarea {
   justify-content: space-between;
   padding: 12px 24px;
   gap: 20px;
+  transition: border-radius 0.35s ease;
 }
 
 /* Official Funngro Logo Styles */
@@ -434,6 +463,7 @@ button, input, select, textarea {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   background: rgba(255, 255, 255, 0.015);
   padding: 7px 16px;
+  transition: border-radius 0.35s ease;
 }
 
 .sub-nav-links {
@@ -1189,6 +1219,20 @@ button, input, select, textarea {
     width: 100%;
     margin: 0;
     border-radius: 0;
+  }
+  .site-header.scrolled {
+    top: 8px;
+    width: calc(100% - 16px);
+    margin: 8px auto 0 auto;
+    border-radius: 16px;
+  }
+  .site-header.scrolled .nav-top-row {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  .site-header.scrolled .sub-navbar {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
   }
   .nav-top-row {
     padding: 10px 16px;
