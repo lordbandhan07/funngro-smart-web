@@ -43,16 +43,7 @@ function initSliderNavigation() {
 
   if (!container || !indicator || !tabs.length) return;
 
-  // Ensure layered color cross-fade backgrounds exist inside the indicator
-  if (!indicator.querySelector('.indicator-bg-teen')) {
-    indicator.innerHTML = `
-      <span class="indicator-bg indicator-bg-teen"></span>
-      <span class="indicator-bg indicator-bg-business"></span>
-      <span class="indicator-bg indicator-bg-audit"></span>
-    `;
-  }
-
-  function updatePositionAndColor(targetTab) {
+  function updateIndicator(targetTab) {
     if (!targetTab) return;
     const tabRect = targetTab.getBoundingClientRect();
     const containerRect = container.getBoundingClientRect();
@@ -62,13 +53,9 @@ function initSliderNavigation() {
     indicator.style.transform = `translateX(${leftOffset - 4}px)`;
     indicator.style.width = `${width}px`;
 
-    // Update active state on tab labels
-    tabs.forEach(t => t.classList.remove('active'));
-    targetTab.classList.add('active');
-
-    // Smoothly toggle the active color class for multi-layered cross-fade
+    // Dynamic color matching
     const target = targetTab.getAttribute('data-target');
-    indicator.classList.remove('indicator-teen', 'indicator-business', 'indicator-audit');
+    indicator.className = 'slider-indicator';
     if (target === 'teen') {
       indicator.classList.add('indicator-teen');
     } else if (target === 'company') {
@@ -78,42 +65,21 @@ function initSliderNavigation() {
     }
   }
 
-  // Set initial position instantly without transition jerk on page load
+  // Set initial position
   const activeTab = document.querySelector('.slider-tab-btn.active') || tabs[0];
-  indicator.classList.add('no-transition');
-  updatePositionAndColor(activeTab);
+  setTimeout(() => updateIndicator(activeTab), 50);
 
-  // Enable buttery transitions on the next frame
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      indicator.classList.remove('no-transition');
-    });
-  });
-
-  // Click/tap handler with smooth gliding animation before navigation
+  // Click/tap handler to slide active indicator
   tabs.forEach(tab => {
-    tab.addEventListener('click', (e) => {
-      const href = tab.getAttribute('href');
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      const targetPage = href ? href.split('#')[0] : '';
-      const isExternalOrOtherPage = targetPage && targetPage !== currentPage && !(currentPage === 'index.html' && targetPage === 'teen.html');
-
-      if (isExternalOrOtherPage) {
-        e.preventDefault();
-        updatePositionAndColor(tab);
-        setTimeout(() => {
-          window.location.href = href;
-        }, 170);
-      } else {
-        updatePositionAndColor(tab);
-      }
+    tab.addEventListener('click', () => {
+      updateIndicator(tab);
     });
   });
 
   // Resize handler
   window.addEventListener('resize', () => {
     const currentActive = document.querySelector('.slider-tab-btn.active') || tabs[0];
-    updatePositionAndColor(currentActive);
+    updateIndicator(currentActive);
   });
 }
 
